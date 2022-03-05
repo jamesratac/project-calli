@@ -4,8 +4,12 @@ def login(username,password):
     file = open("credentials.txt", "r")
     for i in file:
         a,b = i.split(",")
-        #b = b.strip()
-        print(a,b)
+        b.strip()
+        if(a==username and b==password):
+            print("login successful!")
+        else:
+            print("incorrect username/password. please try again.")
+            exit
 
 def register(username,password):
     #print("registered")
@@ -23,7 +27,7 @@ def access(option):
         print("create username and password to register")
         username = input("enter username: ")
         password = input("enter password: ")
-        login(username,password)
+        register(username,password)
 
 def run():
     global option
